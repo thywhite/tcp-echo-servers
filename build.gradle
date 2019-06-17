@@ -23,6 +23,9 @@ repositories {
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     implementation 'com.google.guava:guava:27.0.1-jre'
+    implementation group: 'org.reactivestreams', name: 'reactive-streams', version: '1.0.2'
+
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'

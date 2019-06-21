@@ -29,7 +29,11 @@ public class App {
             return null;
         });
         threadPool.submit(() -> {
-            new ReactiveServer().start(3033);
+            new NettyServer().start(3033);
+            return null;
+        });
+        threadPool.submit(() -> {
+            new ReactiveServer().start(3034);
             return null;
         });
 

@@ -5,14 +5,12 @@
 
 package org.thywhite.springio.sharing;
 
-import static org.junit.Assert.*;
+import java.util.concurrent.CompletableFuture;
 
 import org.junit.Test;
-import org.reactivestreams.Subscriber;
-import org.reactivestreams.Subscription;
 
-import reactor.core.CoreSubscriber;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 /**
@@ -22,9 +20,6 @@ public class ReactiveServerTest {
 
     @Test
     public void testFlux() throws InterruptedException {
-
-
-
 
         final Flux<Integer> flux = Flux.<Integer>create(sink -> {
             System.out.println("Create function");
@@ -60,5 +55,13 @@ public class ReactiveServerTest {
 
         Thread.sleep(10000L);
 
+    }
+
+    @Test
+    public void testFluxMap() {
+
+        Flux.just("String", "Integer")
+                .flatMap(string -> Mono.fromCompletionStage(CompletableFuture.completedFuture(string + '/' + string)))
+                .subscribe(System.out::println);
     }
 }

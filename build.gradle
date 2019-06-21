@@ -18,12 +18,14 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    maven { url 'https://repo.spring.io/libs-snapshot' }
 }
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     implementation 'com.google.guava:guava:27.0.1-jre'
-    implementation group: 'org.reactivestreams', name: 'reactive-streams', version: '1.0.2'
+    implementation group: 'io.projectreactor.netty', name: 'reactor-netty', version: '0.8.9.RELEASE'
+    implementation 'io.projectreactor:reactive-streams-commons:0.6.0.BUILD-SNAPSHOT'
 
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
 
